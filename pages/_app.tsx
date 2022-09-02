@@ -1,8 +1,18 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import Head from 'next/head';
+import type { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+/**
+ * @description App
+ * @date 2022. 9. 2. - 오후 5:10:29
+ * @param {AppProps} { Component, pageProps }
+ * @returns {*}
+ */
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default App;
