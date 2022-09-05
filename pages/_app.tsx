@@ -1,5 +1,6 @@
-import Head from 'next/head';
 import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'styled-components';
+import Theme from '@theme';
 
 /**
  * @description App
@@ -7,10 +8,13 @@ import type { AppProps } from 'next/app';
  * @param {AppProps} { Component, pageProps }
  * @returns {*}
  */
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
-      <Component {...pageProps} />
+      <Theme.GlobalStyle />
+      <ThemeProvider theme={Theme.ThemeResource}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }

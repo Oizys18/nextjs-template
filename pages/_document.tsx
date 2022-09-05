@@ -1,4 +1,11 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 /**
@@ -24,7 +31,6 @@ class CustomDocument extends Document {
 
       const initialProps = await Document.getInitialProps(ctx);
 
-      // html에 style 추가
       return {
         ...initialProps,
         styles: [
@@ -41,6 +47,20 @@ class CustomDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+  render(): JSX.Element {
+    return (
+      <Html>
+        <Head>
+          {/* preload webfont here */}
+          {/* add meta tag here */}
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
 

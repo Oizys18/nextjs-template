@@ -1,11 +1,12 @@
 import type { NextPage } from 'next';
-import styled from 'styled-components';
+import { TestButton } from '@components';
+
 const Index: NextPage = () => {
-  return <Hello>NextJS - typescript Template Index</Hello>;
+  return (
+    <div>
+      <TestButton />
+    </div>
+  );
 };
 
 export default Index;
-
-const Hello = styled.div`
-  background-color: red;
-`;
