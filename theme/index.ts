@@ -18,6 +18,12 @@ const ThemeResource: DefaultTheme = {
     white: '#ffffff',
     black: '#000000',
   },
+  // fontsizes
+  fontSize: {
+    big: '',
+    medium: '',
+    small: '',
+  },
 };
 
 const GlobalStyle = createGlobalStyle`
