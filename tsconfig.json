@@ -21,13 +21,14 @@
       "@theme": ["theme"],
       "@fonts": ["public/fonts"],
       "@images": ["public/images"],
-      "@components": ["components"],
+      "@components": ["src/components"],
       "@types/*": ["types/*"],
       "@theme/*": ["theme/*"],
       "@fonts/*": ["public/fonts/*"],
       "@images/*": ["public/images/*"],
-      "@components/*": ["components/*"]
-    }
+      "@components/*": ["src/components/*"]
+    },
+    "allowJs": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types/*.d.ts"],
   "exclude": ["node_modules"]

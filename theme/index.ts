@@ -18,7 +18,7 @@ const ThemeResource: DefaultTheme = {
     white: '#ffffff',
     black: '#000000',
   },
-  // fontsizes
+  // font sizes
   fontSize: {
     big: '',
     medium: '',
