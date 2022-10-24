@@ -5,13 +5,3 @@ export type StudentData = {
 };
 
 // 학생 리스트
-const getStudentList = (querys: {
-  page: number;
-  search: string;
-  size: number;
-}) =>
-  typedFetch<StudentData[]>({
-    method: 'GET',
-    reqPath: '/api/admin/users/students',
-    querys,
-  });
