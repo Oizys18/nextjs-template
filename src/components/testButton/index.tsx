@@ -1,9 +1,13 @@
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { buttonStore } from './button.store';
 
 function TestButton() {
+  const [value, setValue] = useRecoilState(buttonStore);
   return (
     <Wrapper>
-      <button onClick={() => alert('button!')}>Test Button</button>
+      {value}
+      <button onClick={() => setValue((prev) => prev + 1)}>Test Button</button>
     </Wrapper>
   );
 }

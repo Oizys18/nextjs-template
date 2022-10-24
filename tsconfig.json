@@ -19,9 +19,11 @@
     "paths": {
       "@types": ["types"],
       "@theme": ["theme"],
+      "@api": ["src/api"],
       "@fonts": ["public/fonts"],
       "@images": ["public/images"],
       "@components": ["src/components"],
+      "@api/*": ["src/api/*"],
       "@types/*": ["types/*"],
       "@theme/*": ["theme/*"],
       "@fonts/*": ["public/fonts/*"],

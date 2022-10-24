@@ -1,40 +1,36 @@
-import type { AppProps } from 'next/app';
+import { RecoilRoot } from 'recoil';
 import { ThemeProvider } from 'styled-components';
-import Theme from '@theme';
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
+  QueryClientConfig,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
 
-/**
- * @description App
- * @date 2022. 9. 2. - 오후 5:10:29
- * @param {AppProps} { Component, pageProps }
- * @returns {*}
- */
+import Theme from '@theme';
+import type { AppProps } from 'next/app';
+
+const queryClientConfig: QueryClientConfig = {
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+      staleTime: 300000,
+    },
+  },
+};
+
 function App({ Component, pageProps }: AppProps): JSX.Element {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient(queryClientConfig);
+
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <RecoilRoot>
-        <QueryClientProvider client={queryClient}>
-          <Theme.GlobalStyle />
-          <ThemeProvider theme={Theme.ThemeResource}>
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </QueryClientProvider>
+        <Theme.GlobalStyle />
+        <ThemeProvider theme={Theme.ThemeResource}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </RecoilRoot>
-    </>
+    </QueryClientProvider>
   );
 }
 
